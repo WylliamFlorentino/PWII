@@ -40,7 +40,7 @@
           <a class="nav-link" href="bootstrap.php">Bootstrap</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" >Disabled</a>
+          <a class="nav-link"  href="array.php">Array</a>
         </li>
       </ul>
       <form class="d-flex" role="search">
