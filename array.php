@@ -1,4 +1,4 @@
-<?php include "cabecalho.php"; ?>
+<?php include "cabecario.php"; ?>
       <h1>Array</h1>
       <hr>
       <p>As Variaves do tipo Array são muito ultilizados quando 

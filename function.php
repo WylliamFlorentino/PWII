@@ -1,3 +1,4 @@
+<?php include "cabecario.php"; ?>
 <h1> Funções Nativas</h1>
 <p>Funções nativas são funções que o proprio PHP 
     nos fornece. como por exemplo: 
@@ -42,3 +43,4 @@
     ?>
     </p>
 <h1>Funções Personalizadas</h1>
+<?php include "rodape.php"; ?>

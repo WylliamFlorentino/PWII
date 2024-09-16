@@ -1,5 +1,4 @@
-<?php include "cabecalho.php"; ?>
-<?php include "cabecalho.php"; ?>
+<?php include "cabecario.php"; ?>
 <h1>Aula Bootstrap 09-08-24</h1>
         <div class="row">
             <div class="col-4"></div>
@@ -64,7 +63,4 @@
         <button type="button" class="btn btn-dark">Dark</button>
         <button type="button" class="btn btn-link">Link</button>
         <a href="www.google.com" class="btn btn-primary">Acesso o Google aqui.</a>
-    </div>
-    <script src="bootstrap.bundle.min.js"></script>
-</body>
-</html>
+<?php include "rodape.php"; ?>

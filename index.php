@@ -1,4 +1,4 @@
-<?php include "cabecalho.php"; ?>
+<?php include "cabecario.php"; ?>
 
 <h1>Página inicial do site</h1>
 

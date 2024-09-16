@@ -1,3 +1,4 @@
+<?php include "cabecario.php"; ?>
 <?php
     $frutas = array("maça","laranja","banana");
     print_r($frutas); //escreve na teka is dadis basicos do array
@@ -121,3 +122,4 @@
 
     echo "</table>";
 ?>
+<?php include "rodape.php"; ?>
