@@ -45,6 +45,9 @@
         <li class="nav-item">
           <a class="nav-link"  href="sorteio.php">Sorteio</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link"  href="recupecao.php">Recuperação</a>
+        </li>
 
       </ul>
       <form class="d-flex" role="search">
