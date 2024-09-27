@@ -48,6 +48,10 @@
         <li class="nav-item">
           <a class="nav-link"  href="recupecao.php">Recuperação</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="novo-produto.php">Novo produto</a>
+        </li>
+
 
       </ul>
       <form class="d-flex" role="search">
