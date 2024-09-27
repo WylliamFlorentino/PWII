@@ -1,4 +1,4 @@
-<?php include "cabecalho.php"?>
+<?php include "cabecario.php"?>
 
 <?php
     if(isset ($_POST["nome"]) && isset ($_POST["valor"]) && isset ($_POST["codigobarras"]) && isset ($_POST["datavalidade"])) {
@@ -31,6 +31,7 @@
     <label>Código de barras</label>
     <input type="text" name="codigobarras"/>
     <br>
+    
     <label>Data</label>
     <input type="date" name="datavalidade"/>
     <br>
