@@ -29,7 +29,9 @@
                 
                 if ($resultado){
                     echo "<div class = 'alert alert-success'>Produto Salvo com sucesso</div>";
-                }         
+                }else {
+                    echo "<div class = 'alert alert-danger'>Ocorreu Algum erro ao Salvar</div>";  
+                }        
 
         
         }
