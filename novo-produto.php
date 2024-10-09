@@ -27,6 +27,7 @@
                          VALUES ('$nome','$codigobarras',$valor,1)";
                 $resultado = $conexao->query($query);
                 
+                
                 if ($resultado){
                     echo "<div class = 'alert alert-success'>Produto Salvo com sucesso</div>";
                 }else {

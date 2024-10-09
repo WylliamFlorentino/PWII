@@ -78,8 +78,8 @@
                                     <?php for($i = 0; $i < 25;$i++)
                                         {
                                             echo "<tr>
-                                                    <td>Id $i</td>
-                                                    <td>Descrição $i</td>
+                                                    <td>Id ".$row['id']."</td>";
+                                                    "<td>Descrição $i</td>
                                                     <td>Valor $i</td>
                                                     <td>Codigo de barras $i</td>
                                                     <td>Imagem $i</td>
