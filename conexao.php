@@ -15,6 +15,8 @@
             IMAGEM VARCHAR(50),
             ATIVO BIT NOT NUL
         )
+      insert into produtos(DESCRICAO,CODIGO_BARRAS,VALOR,ATIVO) VALUES ('Amendoin Verde', '78987286400069',5.50,1)      
+      insert into produtos(DESCRICAO,CODIGO_BARRAS,VALOR,ATIVO) VALUES ('Goiabinha Saborosa', '7898045700725',1.50,1)      
     ";
 
     $conexao = new mysqli($servidor,$usuario,$senha,$banco);
