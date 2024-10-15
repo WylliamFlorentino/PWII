@@ -15,7 +15,7 @@
         }else
         {
             $pesquisa="";
-            include "conexao.php";
+            /*include "conexao.php";
             $sql = "select id,descricao,valor from produtos order by id desc";
             $resultado  = $conexao -> query($sql);
             if($resultado->num_rows>0){
@@ -31,7 +31,7 @@
             }else{
                 echo "<tr><td colspan='3'>Nenhum registro encontrado</td></tr>";
             }
-            $conexao->close();
+            $conexao->close();*/
         } 
 
 ?>
@@ -65,7 +65,7 @@
                         <div class="col-12">
                             <table class="table table-striped  table-hover">
                                 <thead>
-                                    <tr>
+                                    <tr>    
                                     <th scope="col">Id</th>
                                     <th scope="col">Descrição</th>
                                     <th scope="col">Valor</th>
@@ -75,24 +75,33 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php for($i = 0; $i < 25;$i++)
-                                        {
-                                            echo "<tr>
-                                                    <td>Id ".$row['id']."</td>";
-                                                    "<td>Descrição $i</td>
-                                                    <td>Valor $i</td>
-                                                    <td>Codigo de barras $i</td>
-                                                    <td>Imagem $i</td>
-                                                    <td>
+                                    <?php 
+                                        $pesquisa="";
+                                        include "conexao.php";
+                                        $sql = "select id,descricao,valor,codigo_barras,imagem from produtos order by id desc";
+                                        $resultado  = $conexao -> query($sql);
+                                        if($resultado->num_rows>0){
+                                            while($row = $resultado->fetch_assoc()){
+                                                echo"<tr>";
+                                                echo"<td>".$row["id"]."</td>";
+                                                echo"<td>".$row["descricao"]."</td>";
+                                                echo"<td>".$row["valor"]."</td>";
+                                                echo"<td>".$row["codigo_barras"]."</td>";
+                                                echo"<td>".$row["imagem"]."</td>";
+                                                echo"<td>
                                                         <a href='' class='btn btn-warning'>
                                                             Editar
                                                         </a>
                                                         <a href='' class='btn btn-danger'>
                                                             Excluir
                                                         </a>    
-                                                    </td>
-                                                </tr>";
+                                                        </td>";
+                                                echo"</tr>";
+                                            }
+                                        }else{
+                                            echo "<tr><td colspan='3'>Nenhum registro encontrado</td></tr>";
                                         }
+                                        $conexao->close();
                                     ?>
                                 </tbody>
                             </table>
