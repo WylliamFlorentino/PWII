@@ -98,6 +98,7 @@
                                                         </td>";
                                                 echo"</tr>";
                                             }
+                                            
                                         }else{
                                             echo "<tr><td colspan='3'>Nenhum registro encontrado</td></tr>";
                                         }
