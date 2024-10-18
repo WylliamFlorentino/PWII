@@ -6,32 +6,31 @@
             if(empty($pesquisa))
             {
                 //se variel estiver Vazio executa aqui.
+                include "conexao.php";
+                $sql = "Select Id, Descricao, Valor, Codigo_barras, Imagem from Produtos order by Id desc";
+                $resultado = $conexao->query($sql);
+                $conexao->close();         
             }
             else
             {
                 //Aqui vai a logica da pesquisa
-
+                include "conexao.php";
+                $sql = "Select Id, Descricao, Valor, Codigo_barras, Imagem 
+                        from Produtos  
+                        where Descricao like '%$pesquisa%' || Codigo_Barras = '$pesquisa'
+                        order by Id desc";
+                $resultado = $conexao->query($sql);
+                $conexao->close();        
             }
         }else
         {
             $pesquisa="";
-            /*include "conexao.php";
-            $sql = "select id,descricao,valor from produtos order by id desc";
-            $resultado  = $conexao -> query($sql);
-            if($resultado->num_rows>0){
-                while($row = $resultado->fetch_assoc()){
-                    echo"<tr>";
-                    echo"<td>".$row["id"]."</td>";
-                    echo"<td>".$row["descricao"]."</td>";
-                    echo"<td>".$row["valor"]."</td>";
-                    echo"<tb><a href='editar_produto.php?id=$row[id]' class='btn btn-warning'>Editar</a>";
-                    echo"<a class='btn btn-danger'>Excluir</a></td>";
-                    echo"</tr>";
-                }
-            }else{
-                echo "<tr><td colspan='3'>Nenhum registro encontrado</td></tr>";
-            }
-            $conexao->close();*/
+            include "conexao.php";
+            $sql = "Select Id, Descricao, Valor, Codigo_barras, Imagem from Produtos order by Id desc";
+            $resultado = $conexao->query($sql);
+           
+            $conexao->close();
+                    
         } 
 
 ?>
@@ -76,7 +75,6 @@
                                 </thead>
                                 <tbody>
                                     <?php 
-                                        $pesquisa="";
                                         include "conexao.php";
                                         $sql = "select id,descricao,valor,codigo_barras,imagem from produtos order by id desc";
                                         $resultado  = $conexao -> query($sql);
@@ -88,14 +86,8 @@
                                                 echo"<td>".$row["valor"]."</td>";
                                                 echo"<td>".$row["codigo_barras"]."</td>";
                                                 echo"<td>".$row["imagem"]."</td>";
-                                                echo"<td>
-                                                        <a href='' class='btn btn-warning'>
-                                                            Editar
-                                                        </a>
-                                                        <a href='' class='btn btn-danger'>
-                                                            Excluir
-                                                        </a>    
-                                                        </td>";
+                                                echo "<td><a href='editar_produto.php?id=$row[id]' class='btn btn-warning' >Editar</a>  ";
+                                                echo "<a href='excluir_produto.php?Id=$row[id]' class='btn btn-danger'>Excluir</a></td>";
                                                 echo"</tr>";
                                             }
                                             
