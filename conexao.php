@@ -37,7 +37,12 @@
     ('Roupão de Banho - Microfibra', 89.90, '1234567890139', 1),
     ('Aspirador de Pó - Sem Fio', 599.90, '1234567890140', 1),
     ('Secador de Cabelo - 2200W', 199.90, '1234567890141', 1),
-    ('Jogo de Lençóis - 150 Fios', 159.90, '1234567890142', 1);    
+    ('Jogo de Lençóis - 150 Fios', 159.90, '1234567890142', 1);     
+
+    CREATE TABLE CATEGORIAS(
+        ID INT PRIMARY KEY AUTO_INCREMENT,
+        NOME VARCHAR(80) NOT NULL
+    );
 ";
  
 
