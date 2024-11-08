@@ -44,7 +44,6 @@
         NOME VARCHAR(80) NOT NULL
     );
 
-
     ALTER TABLE PRODUTOS
     ADD COLUMN CATEGORIA_ID INT;
 
@@ -52,13 +51,16 @@
     ADD CONSTRAINT FK_PRODUTOS_CATEGORIAS
     FOREIGN KEY (CATEGORIA_ID) REFERENCES CATEGORIAS ( ID );
 
+    CREATE TABLE USUARIOS (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    LOGIN VARCHAR(50) NOT NULL,
+    SENHA VARCHAR(80) NOT NULL,
+    ATIVO BIT DEFAULT 1
+);
 
 
 ";
- 
-
-
-    $conexao = new mysqli($servidor,$usuario,$senha,$banco);
+     $conexao = new mysqli($servidor,$usuario,$senha,$banco);
 
     if($conexao -> connect_error){
         die("Falha na conexão:".$conexao->connect_error);
