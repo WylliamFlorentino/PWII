@@ -48,11 +48,34 @@
         <li class="nav-item">
           <a class="nav-link"  href="recupecao.php">Recuperação</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="novo_produto.php">Novo produto</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Produtos
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="produtos.php">Produto</a></li>
+            <li><a class="dropdown-item" href="novo_produto.php">Novo Produto</a></li>
+            <li><a class="dropdown-item" href="editar_produto.php">Editar Produto</a></li>
+          </ul>
         </li>
-
-
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Categorias
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="categorias.php">Categorias</a></li>
+            <li><a class="dropdown-item" href="nova_categoria.php">Nova Categoria</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Usuarios
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="usuarios.php">Usuarios</a></li>
+            <li><a class="dropdown-item" href="novo_usuario.php">Nova Categoria</a></li>
+          </ul>
+        </li>
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

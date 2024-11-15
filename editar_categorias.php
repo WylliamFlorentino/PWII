@@ -53,7 +53,6 @@ else
 }
 
 
-
 ?>
 
 <form action="editar_categorias.php?Id=<?php echo $id; ?>" method="post">

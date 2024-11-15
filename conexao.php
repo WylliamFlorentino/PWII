@@ -59,6 +59,12 @@
 );
 
 
+CREATE TABLE PERMISSOES (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    DESCRICAO VARCHAR(150) NOT NULL,
+    ROLE VARCHAR(50) NOT NULL
+);
+
 ";
      $conexao = new mysqli($servidor,$usuario,$senha,$banco);
 

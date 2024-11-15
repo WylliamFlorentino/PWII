@@ -8,7 +8,7 @@ if( isset($_GET["pesquisa"]) )
     {
        //Se a variavel estiver vazia executa aqui 
        include "conexao.php";
-       $sql = "Select Id, Nome from categorias order by Id desc";
+       $sql = "Select Id, Login, Senha, Ativo from usuarios order by Id desc";
        $resultado = $conexao->query($sql);
        
        $conexao->close();
@@ -17,9 +17,10 @@ if( isset($_GET["pesquisa"]) )
     {
         //Aqui vai a lógica da pesquisa
         include "conexao.php";
-        $sql = "Select Id, Nome from categorias  
-                where Nome like '%$pesquisa%'
-                order by Id desc";
+        $sql = "Select Id,Login,Senha,Ativo 
+                from usuarios  
+                where LOGIN like '%$pesquisa%' || ID = '$pesquisa'
+                order by ID desc";
         $resultado = $conexao->query($sql);
         
         $conexao->close();
@@ -29,14 +30,17 @@ else
 {
     $pesquisa = "";
     include "conexao.php";
-    $sql = "Select Id, Nome from categorias order by Id desc";
+    $sql="Select Id, Login, Senha, Ativo from usuarios order by Id desc";
+//    include "conexao.php";
+//    $sql = "Select P.Id, P.Descricao,P.Valor, P.Codigo_barras,P.Imagem, P.Categoria_Id,C.Nome
+//            from Produtos P left join Categorias C
+//            ON ( P.Categoria_Id = C.Id )
+ //           order by P.Id desc";
     $resultado = $conexao->query($sql);
    
     $conexao->close();
     
 }
-
-
 ?>
 <br>
 <?php
@@ -52,17 +56,17 @@ else
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                Lista de Categorias
+                Usuarios
             </div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-2">
-                        <a href="nova_categoria.php" class="btn btn-success" >
-                            Nova Categoria
+                        <a href="novo_usuario.php" class="btn btn-success" >
+                            Novo Usuario
                         </a>
                     </div>
                     <div class="col-8">
-                        <form action="categorias.php" method="get">
+                        <form action="usuarios.php" method="get">
                             <div class="input-group mb-3">
                                 <input type="text" 
                                         name="pesquisa" 
@@ -87,24 +91,27 @@ else
                         <thead>
                             <tr>
                                 <th scope="col">Id</th>
-                                <th scope="col">Nome</th>
+                                <th scope="col">Login</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php 
-                            if ($resultado->num_rows > 0) {
-                                while($row = $resultado->fetch_assoc()) {
-                                    echo "<tr>";
-                                    echo "<td>" . $row["Id"] . "</td>";
-                                    echo "<td>" . $row["Nome"] . "</td>";
-                                    echo "<td><a href='editar_categorias.php?Id=$row[Id]' class='btn btn-warning' >Editar</a>  ";
-                                    echo "<a href='excluir_categorias.php?Id=$row[Id]' class='btn btn-danger'>Excluir</a></td>";
-                                    echo "</tr>";
+                                if ($resultado->num_rows > 0) {
+                                    while($row = $resultado->fetch_assoc()) {
+                                        echo "<tr>";
+                                        echo "<td>" . $row["Id"] . "</td>";
+                                        echo "<td>" . $row["Login"] . "</td>";
+                                        echo "<td>" . $row["Senha"] . "</td>";
+                                        echo "<td>" . $row["Ativo"] . "</td>";
+                                        echo "<td><a href='editar_usuario.php?Id=$row[Id]' class='btn btn-warning' >Editar</a>  ";
+                                        echo "<a href='excluir_usuario.php?Id=$row[Id]' class='btn btn-danger'>Excluir</a></td>";
+                                        echo "</tr>";
+                                    }
+                                } else {
+                                    echo "<tr><td colspan='3'>Nenhum registro encontrado</td></tr>";
                                 }
-                            } else {
-                                echo "<tr><td colspan='3'>Nenhum registro encontrado</td></tr>";
-                            }
-                       ?>  
+                            ?>
+                                                    
                         </tbody>
                         </table>
                     </div>
