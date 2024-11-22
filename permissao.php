@@ -19,7 +19,7 @@ if( isset($_GET["pesquisa"]) )
         include "conexao.php";
         $sql = "Select ID, DESCRICAO, ROLE 
                 from permissoes  
-                where DESCRICAO like '%$pesquisa%' || ID = '$pesquisa'
+                where ROLE like '%$pesquisa%' || ID = '$pesquisa'
                 order by ID desc";
         $resultado = $conexao->query($sql);
         

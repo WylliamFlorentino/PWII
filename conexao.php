@@ -3,6 +3,13 @@
     $usuario  = "root";
     $senha="";
     $banco ="PW_BD";
+    
+    $conexao = new mysqli($servidor,$usuario,$senha,$banco);
+
+    if($conexao -> connect_error){
+        die("Falha na conexão:".$conexao->connect_error);
+        echo"";
+    }
 
     $script="
      CREATE DATABASE PW_BD;
@@ -73,14 +80,16 @@ CREATE TABLE PERMISSOES (
     ROLE VARCHAR(50) NOT NULL
 );
 
+    CREATE TABLE USUARIOS_PERMISSOES (
+        ID INT PRIMARY KEY AUTO_INCREMENT,
+        USUARIO_ID INT NOT NULL,
+        PERMISSAO_ID INT NOT NULL,
+        CONSTRAINT FK_USUARIO FOREIGN KEY (usuario_id) REFERENCES USUARIOS(ID) ON DELETE CASCADE,
+        CONSTRAINT FK_PERMISSAO FOREIGN KEY (permissao_id) REFERENCES PERMISSOES(ID) ON DELETE CASCADE
+    )
 
+ INSERT INTO `usuarios_permissoes` (`ID`, `USUARIO_ID`, `PERMISSAO_ID`) VALUES (NULL, '1', '6'), (NULL, '1', '5');
 
 
 ";
-     $conexao = new mysqli($servidor,$usuario,$senha,$banco);
-
-    if($conexao -> connect_error){
-        die("Falha na conexão:".$conexao->connect_error);
-        echo"";
-    }
 ?>

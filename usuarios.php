@@ -36,8 +36,7 @@ else
 //            from Produtos P left join Categorias C
 //            ON ( P.Categoria_Id = C.Id )
  //           order by P.Id desc";
-    $resultado = $conexao->query($sql);
-   
+    $resultado = $conexao->query($sql);   
     $conexao->close();
     
 }
@@ -92,7 +91,6 @@ else
                             <tr>
                                 <th scope="col">Id</th>
                                 <th scope="col">Login</th>
-                                <th scope="col">Senha</th>
                                 <th scope="col">Ativo</th>
                             </tr>
                         </thead>
@@ -103,10 +101,16 @@ else
                                         echo "<tr>";
                                         echo "<td>" . $row["Id"] . "</td>";
                                         echo "<td>" . $row["Login"] . "</td>";
-                                        echo "<td>" . $row["Senha"] . "</td>";
                                         echo "<td>" . $row["Ativo"] . "</td>";
                                         echo "<td><a href='editar_usuario.php?Id=$row[Id]' class='btn btn-warning' >Editar</a>  ";
-                                        echo "<a href='excluir_usuario.php?Id=$row[Id]' class='btn btn-danger'>Excluir</a></td>";
+                                        echo "<a href='excluir_usuario.php?Id=$row[Id]' class='btn btn-danger'>Excluir</a>";
+                                        if($row["Ativo"])
+                                        {
+                                            echo "<a href='desativar_usuario.php?Id=$row[Id]' class='btn btn-danger'>Desativar</a>";   
+                                        }else{
+                                            echo "<a href='ativar_usuario.php?Id=$row[Id]' class='btn btn-success'>Ativar</a>";
+                                        }
+                                        echo "<a href='permissoes_usuario.php?id_usuario=$row[Id]' class='btn btn-primary'>Permissões</a></td>";
                                         echo "</tr>";
                                     }
                                 } else {
