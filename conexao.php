@@ -44,6 +44,14 @@
         NOME VARCHAR(80) NOT NULL
     );
 
+    INSERT INTO `categorias` (`ID`, `NOME`) VALUES
+    (1, 'Gamer'),
+    (3, 'Vestuário'),
+    (4, 'Alimentos'),
+    (5, 'Utilidades Domésticas'),
+    (6, 'Eletronicos');
+
+
     ALTER TABLE PRODUTOS
     ADD COLUMN CATEGORIA_ID INT;
 
@@ -64,6 +72,9 @@ CREATE TABLE PERMISSOES (
     DESCRICAO VARCHAR(150) NOT NULL,
     ROLE VARCHAR(50) NOT NULL
 );
+
+
+
 
 ";
      $conexao = new mysqli($servidor,$usuario,$senha,$banco);

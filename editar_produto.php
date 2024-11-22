@@ -99,7 +99,5 @@ else
     Salvar Alterações
     </button>
 
-
-
 </form>
 <?php include "rodape.php"; ?>

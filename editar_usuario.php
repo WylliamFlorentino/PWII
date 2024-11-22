@@ -1,16 +1,19 @@
 <?php include "cabecario.php"; ?>
 <?php 
-if(  isset($_POST['login']) && !empty($_POST['login']) &&
+if( 
+    isset($_POST['Id']) && !empty($_POST['Id']) &&
+    isset($_POST['login']) && !empty($_POST['login']) &&
     isset($_POST['senha']) && !empty($_POST['senha']) &&
-    isset($_POST['ativo']) && !empty($_POST['atibo'])
+    isset($_POST['ativo']) && !empty($_POST['ativo']))
 {
     include "conexao.php";
     $sql = "UPDATE usuarios SET login = '$_POST[login]',
-                                senha =  $_POST[senha],
+                                senha = '$_POST[senha]',
                                 ativo = '$_POST[ativo]'
-            WHERE id = $_POST[id]";
+            WHERE Id = $_POST[Id]";
      
-     echo $sql;
+    echo $sql;
+    
     $resultado = $conexao->query($sql);
     if($resultado)
     {
@@ -24,10 +27,11 @@ if(  isset($_POST['login']) && !empty($_POST['login']) &&
 
 
 
-if ( isset($_GET["Id"]) && !empty( $_GET['Id'] )   )  
+if ( isset($_GET['Id']) && !empty( $_GET['Id'] )   )  
 {
     include "conexao.php";
-    $sql = "Select Id, login, senha, ativo from usuarios where id = $_GET[id]";
+    $sql = "Select Id, login, senha, ativo from usuarios where id = $_GET[Id]";
+ 
     $resultado = $conexao->query($sql);
     if($resultado)
     {
@@ -35,10 +39,10 @@ if ( isset($_GET["Id"]) && !empty( $_GET['Id'] )   )
         {
             while($row = $resultado->fetch_assoc()) 
             {
-                $id = $row["id"];
-                $descricao = $row["login"];
-                $valor = $row["senha"];
-                $codigo_barras = $row["ativo"];
+                $id = $row["Id"];
+                $login = $row["login"];
+                $senha = $row["senha"];
+                $ativo = $row["ativo"];
             }
         }
         else
@@ -61,35 +65,10 @@ else
 ?>
 
 <form action="editar_usuario.php?Id=<?php echo $id; ?>" method="post">
-    <input name="id" value="<?php echo $id ?>" />
+    <input name="Id" value="<?php echo $id ?>" />
     <input name="login" value="<?php echo $login ?>" />
     <input name="senha" value="<?php echo $senha ?>" />
     <input name="ativo" value="<?php echo $ativo ?>" />
-    <br>
-    <select name="usuarios_id" >
-        <?php
-            $sql_categorias = "select Id,Nome from categorias";
-            $resultado_categoria = $conexao -> query($sql_categorias);
-            
-            if ($resultado_categoria->num_rows > 0) {
-                while($row = $resultado_categoria->fetch_assoc()) 
-                {
-                    if($categoria_id == $row["Id"])
-                    {
-                        echo "<option selected value='$row[Id]'>$row[Nome]</option>";    
-                    }    
-                    else
-                    {
-                        echo " <option value='$row[Id]'>$row[Nome]</option>";
-                    }
-                }
-            }
-            else
-            {
-                echo"<option value='0'>Não tem Categoria Cadastrada </option>";
-            }
-        ?>
-    </select>
     <br>
     <button type="submit" >
     Salvar Alterações
